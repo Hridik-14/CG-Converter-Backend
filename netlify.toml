@@ -1,8 +1,7 @@
 [build]
-    functions="src"
+    functions="functions"
 
 [[redirects]]
-    to="http://localhost:4000/:splat"
-    from="/api/"
+    to="/.netlify/functions/api:splat"
+    from="/*"
     status=200 
-    force=true
