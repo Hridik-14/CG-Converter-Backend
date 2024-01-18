@@ -15,7 +15,7 @@ app.use(bodyParser.json({limit: '10mb'}));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.use(fileUpload());
 
-router.post('/extract-text', (req, res) => {
+router.post('/extract-text', cors(), (req, res) => {
   if(!req.files) {
     res.status(404);
     res.end();
@@ -47,5 +47,5 @@ router.get('/', cors(), (req, res) => {
   )
 })
 
-app.use('/', router);
+app.use('/.netlify/functions/api', router);
 module.exports.handler = serverless(app);
