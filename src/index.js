@@ -13,6 +13,10 @@ app.use(bodyParser.json({limit: '10mb'}));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.use(fileUpload());
 
+app.get('/', (req, res) => {
+  res.send({message: 'Running'});
+})
+
 app.post('/extract-text', (req, res) => {
   if(!req.files) {
     res.status(404);
